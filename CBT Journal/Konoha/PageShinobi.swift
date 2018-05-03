@@ -43,7 +43,6 @@ class PageShinobi{
         } catch {
             print("\(error)")
         }
-        print("> Page Count: \(array.count)")
         return array
     }//End fetchAllPages
     
@@ -72,6 +71,20 @@ class PageShinobi{
         }
         Jonathan.saveToDatabase()
     }//End deleteAllPages()
+    
+    func deletePagesForDay(dayObject: Day){
+        print("<> PageShinobi <> deletePagesForDay <>")
+        var array = fetchAllPagesForDate(dateObject: dayObject)
+        let counter = array.count
+        var x = 0
+        while x < counter {
+            let item = array[0]
+            managedObjectContext.delete(item)
+            array.remove(at: 0)
+            x += 1
+        }
+        Jonathan.saveToDatabase()
+    }
     
     func deleteSinglePage(pageObject: Page){
         print("<> PageShinobi <> deleteSinglePage <>")

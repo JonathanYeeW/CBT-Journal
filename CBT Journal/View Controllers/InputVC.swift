@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InputVC: UIViewController, UITextViewDelegate {
+class InputVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     override func viewDidLoad() {
         print(""); print("xX_ InputVC _Xx"); print("## viewDidLoad ##")
@@ -40,6 +40,7 @@ class InputVC: UIViewController, UITextViewDelegate {
             textView.text = pageObject?.summary
         }
         descriptionLabel.text = descriptionDictionary[typeSwitch]
+        textField.text = pageObject?.title
     }//End viewDidLoad()
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +53,7 @@ class InputVC: UIViewController, UITextViewDelegate {
     var descriptionDictionary = [0: "Describe in 1-3 sentences what event triggered your emotional response.", 1: "Describe your inital thoughts to the event. Try to write phrases in terms of 'I think...' rather than 'I feel that...'", 2: "What feelings/physical reactions did you/are you experiencing?", 3: "Reflecting on your initial thoughts of the event, read over your descriptions and try to recognize any distorted thought patterns and respond to them. Why are they distorted? What are some other ways to look at it?", 4: "How are you feeling now?", 5: "What about you can you take away from this experience? What do you want to work on? Why do you think you had this response? What do you want to improve about yourself or have you accomplished something today?"]
     
     //Outlets
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
@@ -64,6 +66,7 @@ class InputVC: UIViewController, UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("## touchesBegan ##")
         self.textView.endEditing(true)
+        self.textField.endEditing(true)
     }
     
 }//End Class

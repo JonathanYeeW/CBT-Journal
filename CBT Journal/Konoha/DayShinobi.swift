@@ -14,6 +14,7 @@ class DayShinobi{
     //Variables
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let Jonathan = Shinobi()
+    let Kakashi = PageShinobi()
     //Functions
     func saveToDatabase(){
         print("<> DayShinobi <> saveToDatabase <>")
@@ -67,6 +68,13 @@ class DayShinobi{
             x += 1
         }
         saveToDatabase()
+    }
+    
+    func deleteSingleDay(dayObject: Day){
+        print("<> DayShinobi <> deleteSingleDay <>")
+        Kakashi.deletePagesForDay(dayObject: dayObject)
+        managedObjectContext.delete(dayObject)
+        Jonathan.saveToDatabase()
     }
     
     

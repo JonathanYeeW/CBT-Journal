@@ -10,9 +10,8 @@ import UIKit
 class PageTVC: UITableViewController {
     override func viewDidLoad() {
         print(""); print("xX_ PageTVC _Xx"); print("## viewDidLoad ##")
+        title = Jonathan.formatDateLong(date: (dateObject?.createdAt)!)
         super.viewDidLoad()
-//        Kakashi.deleteAllPages()
-        pageArray = Kakashi.fetchAllPagesForDate(dateObject: dateObject!)
     }//End viewDidLoad()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,7 +115,7 @@ class PageTVC: UITableViewController {
     // ======================= Functions =======================
     func ReloadTableView(){
         print("## ReloadTableView ##")
-        pageArray = Kakashi.fetchAllPages()
+        pageArray = Kakashi.fetchAllPagesForDate(dateObject: dateObject!)
         tableView.reloadData()
     }//End ReloadTableView()
 }//End Class

@@ -12,6 +12,11 @@ class NotesTVC: UITableViewController {
         print(""); print("xX_ NotesTVC _Xx"); print("## viewDidLoad ##")
         super.viewDidLoad()
     }//End viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(""); print("xX_ NotesTVC _Xx"); print("## viewWillAppear ##")
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,6 +50,7 @@ class NotesTVC: UITableViewController {
             print("> Summary")
             pageObject?.summary = source.textView.text
         }
+        pageObject?.title = source.textField.text
         Jonathan.saveToDatabase()
     }
     

@@ -13,7 +13,7 @@ class MainTVC: UITableViewController {
         print("xX_ MainTVC _Xx")
         print("viewDidLoad")
         super.viewDidLoad()
-        dayArray = Naruto.fetchAllDays()
+        ReloadTableView()
     }//End viewDidLoad()
 
     override func didReceiveMemoryWarning() {
@@ -62,10 +62,18 @@ class MainTVC: UITableViewController {
         }
     }//End prepare()
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        print("## commit editingStyle ##")
+        let dayObject = dayArray[indexPath.row]
+        Naruto.deleteSingleDay(dayObject: dayObject)
+        ReloadTableView()
+    }//End commit editingStyle()
+    
     //Functions
     func ReloadTableView(){
         print("## ReloadTableView ##")
         dayArray = Naruto.fetchAllDays()
+        dayArray = dayArray.sorted(by: {$0.createdAt! > $1.createdAt!})
         tableView.reloadData()
     }//End ReloadTableView()
     

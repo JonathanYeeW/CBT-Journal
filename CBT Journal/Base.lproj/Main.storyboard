@@ -354,8 +354,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Insert Notes Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fPc-IK-vgQ">
+                                <rect key="frame" x="20" y="70" width="335" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="m85-XE-r0k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CH0-Gy-xvs">
-                                <rect key="frame" x="20" y="300" width="335" height="50"/>
+                                <rect key="frame" x="20" y="330" width="335" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLz-DQ-f9t">
                                         <rect key="frame" x="0.0" y="0.0" width="162.5" height="50"/>
@@ -395,35 +408,31 @@
                                     <constraint firstAttribute="height" constant="50" id="5Jq-TK-o7s"/>
                                 </constraints>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Insert Notes Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fPc-IK-vgQ">
-                                <rect key="frame" x="20" y="40" width="335" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="m85-XE-r0k"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaY-Zl-lEr">
-                                <rect key="frame" x="25" y="375" width="325" height="17"/>
+                                <rect key="frame" x="25" y="405" width="325" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxu-7E-nmY">
+                                <rect key="frame" x="20" y="30" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="t2x-Tt-gd8" firstAttribute="trailing" secondItem="CaY-Zl-lEr" secondAttribute="trailing" constant="25" id="1zh-Ie-Qx6"/>
+                            <constraint firstItem="t2x-Tt-gd8" firstAttribute="trailing" secondItem="lxu-7E-nmY" secondAttribute="trailing" constant="20" id="6K0-U4-cvD"/>
+                            <constraint firstItem="lxu-7E-nmY" firstAttribute="leading" secondItem="t2x-Tt-gd8" secondAttribute="leading" constant="20" id="AzM-9f-VhL"/>
                             <constraint firstItem="t2x-Tt-gd8" firstAttribute="trailing" secondItem="CH0-Gy-xvs" secondAttribute="trailing" constant="20" id="Mkm-VT-zCK"/>
                             <constraint firstItem="t2x-Tt-gd8" firstAttribute="trailing" secondItem="fPc-IK-vgQ" secondAttribute="trailing" constant="20" id="SNT-0d-Dg2"/>
                             <constraint firstItem="CH0-Gy-xvs" firstAttribute="leading" secondItem="t2x-Tt-gd8" secondAttribute="leading" constant="20" id="ThW-zd-Jyj"/>
                             <constraint firstItem="CH0-Gy-xvs" firstAttribute="top" secondItem="fPc-IK-vgQ" secondAttribute="bottom" constant="10" id="cRl-ko-ezs"/>
+                            <constraint firstItem="lxu-7E-nmY" firstAttribute="top" secondItem="t2x-Tt-gd8" secondAttribute="top" constant="10" id="ezc-Ta-9AF"/>
                             <constraint firstItem="CaY-Zl-lEr" firstAttribute="leading" secondItem="t2x-Tt-gd8" secondAttribute="leading" constant="25" id="kiS-5M-6xF"/>
-                            <constraint firstItem="fPc-IK-vgQ" firstAttribute="top" secondItem="t2x-Tt-gd8" secondAttribute="top" constant="20" id="mH8-2j-a7y"/>
+                            <constraint firstItem="fPc-IK-vgQ" firstAttribute="top" secondItem="lxu-7E-nmY" secondAttribute="bottom" constant="10" id="lK2-ea-vqs"/>
                             <constraint firstItem="fPc-IK-vgQ" firstAttribute="leading" secondItem="t2x-Tt-gd8" secondAttribute="leading" constant="20" id="xp7-Ff-3Ra"/>
                             <constraint firstItem="CaY-Zl-lEr" firstAttribute="top" secondItem="CH0-Gy-xvs" secondAttribute="bottom" constant="25" id="zo1-Zs-RXU"/>
                         </constraints>
@@ -431,6 +440,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="CaY-Zl-lEr" id="n8j-Ti-1ip"/>
+                        <outlet property="textField" destination="lxu-7E-nmY" id="ju4-e4-lgS"/>
                         <outlet property="textView" destination="fPc-IK-vgQ" id="Kak-U0-dEY"/>
                     </connections>
                 </viewController>
