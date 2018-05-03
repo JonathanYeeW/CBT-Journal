@@ -14,45 +14,49 @@ class MainTVC: UITableViewController {
         print("viewDidLoad")
         super.viewDidLoad()
         ReloadTableView()
-    }//End viewDidLoad()
-
+    }//End
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }//End didReceiveMemoryWarning()
+    }//End
     
-    //Variables
+// ======================= Variables =======================
     let Jonathan = Shinobi()
     let Naruto = DayShinobi()
     var dayArray: [Day] = []
     
-    //Outlets
+// ======================= Outlets =======================
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         print("@@ addButtonPressed @@")
         if Naruto.checkIfTodayAlreadyCreated() == false {
             Naruto.createDay()
         }
         ReloadTableView()
-    }//End addButtonPressed()
+    }//End
     
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
         print("@@ settingsButtonPressed @@")
-    }//End settingsButtonPressed()
+    }//End
     
-    //TableView Functions
+// ======================= TableView Functions =======================
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dayArray.count
-    }//End numberOfRowsInSection
+    }//End
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = Jonathan.formatDateLong(date: (dayArray[indexPath.row].createdAt)!)
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "Today"
+        } else {
+            cell.textLabel?.text = Jonathan.formatDateLong(date: (dayArray[indexPath.row].createdAt)!)
+        }
         return cell
-    }//End cellForRowAt
+    }//End
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("## didSelectRowAt ##")
         performSegue(withIdentifier: "segueToPageTVC", sender: indexPath)
-    }//End didSelectRowAt
+    }//End
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("## prepare ##")
@@ -60,22 +64,20 @@ class MainTVC: UITableViewController {
             let controller = segue.destination as! PageTVC
             controller.dateObject = dayArray[(tableView.indexPathForSelectedRow?.row)!]
         }
-    }//End prepare()
+    }//End
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         print("## commit editingStyle ##")
         let dayObject = dayArray[indexPath.row]
         Naruto.deleteSingleDay(dayObject: dayObject)
         ReloadTableView()
-    }//End commit editingStyle()
+    }//End
     
-    //Functions
+// ======================= Functions =======================
     func ReloadTableView(){
         print("## ReloadTableView ##")
         dayArray = Naruto.fetchAllDays()
         dayArray = dayArray.sorted(by: {$0.createdAt! > $1.createdAt!})
         tableView.reloadData()
     }//End ReloadTableView()
-    
-    
 }//End Class

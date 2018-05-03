@@ -12,6 +12,10 @@ class PageTVC: UITableViewController {
         print(""); print("xX_ PageTVC _Xx"); print("## viewDidLoad ##")
         title = Jonathan.formatDateLong(date: (dateObject?.createdAt)!)
         super.viewDidLoad()
+        ReloadTableView()
+        for object in pageArray{
+            object.expanded = false
+        }
     }//End viewDidLoad()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +39,7 @@ class PageTVC: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }//End numberOfSections
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -77,7 +81,6 @@ class PageTVC: UITableViewController {
             performSegue(withIdentifier: "segueToNotesTVC", sender: indexPath)
         } else {
             let cell = pageArray[indexPath.row]
-            print(cell.expanded)
             cell.expanded = !cell.expanded
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
@@ -116,6 +119,7 @@ class PageTVC: UITableViewController {
     func ReloadTableView(){
         print("## ReloadTableView ##")
         pageArray = Kakashi.fetchAllPagesForDate(dateObject: dateObject!)
+        pageArray = pageArray.sorted(by: { $0.createdAt! > $1.createdAt! })
         tableView.reloadData()
     }//End ReloadTableView()
 }//End Class
