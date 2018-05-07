@@ -79,7 +79,7 @@ class NotesTVC: UITableViewController {
             // MARK: I'm saying below that if the attribute hasn't been updated, the corresponding cell will display white
             print(">>> Creating a Cell, Checking for cell.backgroundColor")
             print(">> indexPath.row is \(indexPath.row) and indexPath.section is \(indexPath.section)")
-            if indexPath.row == 1 {
+            if indexPath.row == 1 {    
                 print("> WE 0")
                 print("> MARK: I'm checking what the pageObject.event is \(pageObject?.event!)")
                 if pageObject?.event! != "" {cell.backgroundColor = UIColor.white}

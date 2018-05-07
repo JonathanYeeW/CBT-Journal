@@ -35,14 +35,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="C1O-bS-BEQ">
-                        <barButtonItem key="leftBarButtonItem" image="icons8-settings-90" id="TfS-xE-O0s">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HRK-jG-zfG">
                             <connections>
-                                <action selector="settingsButtonPressed:" destination="SrN-oW-8iw" id="ixj-PE-gks"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="oyM-pX-qrZ">
-                            <connections>
-                                <action selector="addButtonPressed:" destination="SrN-oW-8iw" id="lVW-yt-7Hv"/>
+                                <action selector="addButtonPressed:" destination="SrN-oW-8iw" id="dxg-jf-HUV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -308,7 +303,7 @@
                                         <constraint firstItem="Rli-IS-uPS" firstAttribute="leading" secondItem="Nwn-mI-9LS" secondAttribute="leadingMargin" constant="10" id="v2U-SN-ryZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.014485834522831142" green="0.93460467596794961" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.015686274509803921" green="0.93333333333333335" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="entry" id="fB7-lm-ZsU">
                                 <rect key="frame" x="0.0" y="380" width="375" height="44"/>
@@ -414,7 +409,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxu-7E-nmY">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Topic Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxu-7E-nmY">
                                 <rect key="frame" x="20" y="30" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -468,9 +463,6 @@
             <point key="canvasLocation" x="741.60000000000002" y="-499.70014992503752"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icons8-settings-90" width="30" height="30"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZiD-K2-EEX"/>
     </inferredMetricsTieBreakers>

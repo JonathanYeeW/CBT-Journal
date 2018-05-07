@@ -13,6 +13,9 @@ class MainTVC: UITableViewController {
         print("xX_ MainTVC _Xx")
         print("viewDidLoad")
         super.viewDidLoad()
+        if Naruto.checkIfTodayAlreadyCreated() == false {
+            Naruto.createDay()
+        }
         ReloadTableView()
     }//End
     
@@ -26,19 +29,15 @@ class MainTVC: UITableViewController {
     var dayArray: [Day] = []
     
 // ======================= Outlets =======================
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         print("@@ addButtonPressed @@")
         if Naruto.checkIfTodayAlreadyCreated() == false {
             Naruto.createDay()
         }
         ReloadTableView()
-    }//End
-    
-    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
-        print("@@ settingsButtonPressed @@")
-    }//End
-    
-// ======================= TableView Functions =======================
+    }
+    // ======================= TableView Functions =======================
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dayArray.count
     }//End
@@ -47,6 +46,7 @@ class MainTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         if indexPath.row == 0 {
             cell.textLabel?.text = "Today"
+            cell.backgroundColor = UIColor(red:0.02, green:0.93, blue:1.00, alpha:1.0)
         } else {
             cell.textLabel?.text = Jonathan.formatDateLong(date: (dayArray[indexPath.row].createdAt)!)
         }
