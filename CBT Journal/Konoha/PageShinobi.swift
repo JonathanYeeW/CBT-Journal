@@ -21,7 +21,7 @@ class PageShinobi{
         let item = NSEntityDescription.insertNewObject(forEntityName: "Page", into: managedObjectContext) as! Page
         item.createdAt = Date()
         item.myDay = dateObject
-        item.title = "Title"
+        item.title = "Topic"
         item.event = ""
         item.feelings = ""
         item.thoughts = ""

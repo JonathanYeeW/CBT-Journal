@@ -40,7 +40,11 @@ class InputVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
             textView.text = pageObject?.summary
         }
         descriptionLabel.text = descriptionDictionary[typeSwitch]
-        textField.text = pageObject?.title
+        if pageObject?.title == "Topic" {
+            textField.text = ""
+        } else {
+            textField.text = pageObject?.title
+        }
     }//End viewDidLoad()
 
     override func didReceiveMemoryWarning() {

@@ -17,7 +17,7 @@ class Shinobi {
     //Functions
     func formatDateLong(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
+        dateFormatter.dateStyle = .full
         return dateFormatter.string(from: date)
     }//End formatDateLong()
     

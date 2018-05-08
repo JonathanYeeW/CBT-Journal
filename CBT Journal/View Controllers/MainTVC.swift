@@ -44,11 +44,9 @@ class MainTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = Jonathan.formatDateLong(date: (dayArray[indexPath.row].createdAt)!)
         if indexPath.row == 0 {
-            cell.textLabel?.text = "Today"
-            cell.backgroundColor = UIColor(red:0.02, green:0.93, blue:1.00, alpha:1.0)
-        } else {
-            cell.textLabel?.text = Jonathan.formatDateLong(date: (dayArray[indexPath.row].createdAt)!)
+            cell.backgroundColor = UIColor(red:0.64, green:0.88, blue:0.92, alpha:1.0)
         }
         return cell
     }//End

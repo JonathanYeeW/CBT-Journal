@@ -65,7 +65,7 @@ class NotesTVC: UITableViewController {
             tableView.rowHeight = 50
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as! CustomCellNotesTVCTitleCell
             cell.pageObject = pageObject
-            if pageObject?.title == "Title" {
+            if pageObject?.title == "Topic" {
                 cell.textField.text = ""
             } else {
                 cell.textField.text = pageObject?.title
@@ -79,24 +79,17 @@ class NotesTVC: UITableViewController {
             // MARK: I'm saying below that if the attribute hasn't been updated, the corresponding cell will display white
             print(">>> Creating a Cell, Checking for cell.backgroundColor")
             print(">> indexPath.row is \(indexPath.row) and indexPath.section is \(indexPath.section)")
-            if indexPath.row == 1 {    
-                print("> WE 0")
-                print("> MARK: I'm checking what the pageObject.event is \(pageObject?.event!)")
+            if indexPath.row == 1 {
                 if pageObject?.event! != "" {cell.backgroundColor = UIColor.white}
             } else if indexPath.row == 2 {
-                print("> WE 1")
                 if pageObject?.initialThoughts! != "" {cell.backgroundColor = UIColor.white}
             } else if indexPath.row == 3 {
-                print("> WE 2")
                 if pageObject?.initialFeelings! != "" {cell.backgroundColor = UIColor.white}
             } else if indexPath.row == 4 {
-                print("> WE 3")
                 if pageObject?.thoughts! != "" {cell.backgroundColor = UIColor.white}
             } else if indexPath.row == 5 {
-                print("> WE 4")
                 if pageObject?.feelings! != "" {cell.backgroundColor = UIColor.white}
             } else if indexPath.row == 6 {
-                print("> WE 5")
                 if pageObject?.summary! != "" {cell.backgroundColor = UIColor.white}
             }
             return cell
