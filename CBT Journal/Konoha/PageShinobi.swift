@@ -90,8 +90,53 @@ class PageShinobi{
         print("<> PageShinobi <> deleteSinglePage <>")
         managedObjectContext.delete(pageObject)
         Jonathan.saveToDatabase()
-    }
+    }//End deleteSinglePage()
     
+    func searchByTopic(topic: String) -> [Page] {
+        print("<> PageShinobi <> searchByTopic <>")
+        let array = fetchAllPages()
+        var tempArray: [Page] = []
+        for object in array {
+            if object.title == topic {
+                tempArray.append(object)
+            }
+        }
+        return tempArray
+    }//End searchByTopic()
+    
+    
+    func findAllTopics() -> String {
+        print("<> PageShinobi <> findAllTopics <>")
+        let array = fetchAllPages()
+        var tempArray: [String] = []
+        //MARK: Forloop below is for finding all of the topics, and the inner forloop
+        // is for making sure we don't repeat any topics
+        for object in array {
+            var lightSwitch = false
+            for title in tempArray{
+                if title == object.title! {
+                    lightSwitch = true
+                }
+            }
+            if lightSwitch == false {
+                tempArray.append(object.title!)
+            }
+        }
+        //MARK: Below is for creating a single string to return
+        var tempString = ""
+        let counter = tempArray.count
+        var x = 0
+        for title in tempArray{
+            x += 1
+            if x == counter {
+                tempString += "\(title)"
+            } else {
+                tempString += "\(title), "
+            }
+            
+        }
+        return tempString
+    }//End findAllTopics()
 //    create
 //    fetchAll
 //    fetchSingle

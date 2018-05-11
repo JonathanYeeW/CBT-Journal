@@ -16,6 +16,8 @@
 		23636FBA2098D7800083F60A /* NotesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23636FB92098D7800083F60A /* NotesTVC.swift */; };
 		236CBD532098FE15007E4FED /* PageShinobi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236CBD522098FE15007E4FED /* PageShinobi.swift */; };
 		236CBD5A20990E8E007E4FED /* InputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236CBD5920990E8E007E4FED /* InputVC.swift */; };
+		236CCCA320A60AD70045EC2C /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236CCCA220A60AD70045EC2C /* SearchVC.swift */; };
+		236CCCA620A623CF0045EC2C /* CustomCellSearchVCAllTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236CCCA520A623CF0045EC2C /* CustomCellSearchVCAllTopics.swift */; };
 		23A147982098B97500D423B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A147972098B97500D423B0 /* AppDelegate.swift */; };
 		23A1479D2098B97500D423B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23A1479B2098B97500D423B0 /* Main.storyboard */; };
 		23A147A02098B97500D423B0 /* CBT_Journal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23A1479E2098B97500D423B0 /* CBT_Journal.xcdatamodeld */; };
@@ -23,6 +25,8 @@
 		23A147A52098B97700D423B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23A147A32098B97700D423B0 /* LaunchScreen.storyboard */; };
 		23A147B02098B97700D423B0 /* CBT_JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A147AF2098B97700D423B0 /* CBT_JournalTests.swift */; };
 		23A147BB2098B97700D423B0 /* CBT_JournalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A147BA2098B97700D423B0 /* CBT_JournalUITests.swift */; };
+		23DE2BC720A632B300DD1EF9 /* CustomCellSearchVCExpandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE2BC620A632B300DD1EF9 /* CustomCellSearchVCExpandingCell.swift */; };
+		23DFC68F20A6632F00A71725 /* newNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DFC68E20A6632F00A71725 /* newNotesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,8 @@
 		23636FB92098D7800083F60A /* NotesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTVC.swift; sourceTree = "<group>"; };
 		236CBD522098FE15007E4FED /* PageShinobi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageShinobi.swift; sourceTree = "<group>"; };
 		236CBD5920990E8E007E4FED /* InputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVC.swift; sourceTree = "<group>"; };
+		236CCCA220A60AD70045EC2C /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		236CCCA520A623CF0045EC2C /* CustomCellSearchVCAllTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellSearchVCAllTopics.swift; sourceTree = "<group>"; };
 		23A147942098B97500D423B0 /* CBT Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CBT Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23A147972098B97500D423B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23A1479C2098B97500D423B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +71,8 @@
 		23A147B62098B97700D423B0 /* CBT JournalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CBT JournalUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23A147BA2098B97700D423B0 /* CBT_JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBT_JournalUITests.swift; sourceTree = "<group>"; };
 		23A147BC2098B97700D423B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23DE2BC620A632B300DD1EF9 /* CustomCellSearchVCExpandingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellSearchVCExpandingCell.swift; sourceTree = "<group>"; };
+		23DFC68E20A6632F00A71725 /* newNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newNotesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +115,10 @@
 				23636FAA2098BD570083F60A /* MainTVC.swift */,
 				23636FB22098CB030083F60A /* PageTVC.swift */,
 				23636FB92098D7800083F60A /* NotesTVC.swift */,
+				23DFC68E20A6632F00A71725 /* newNotesVC.swift */,
 				236CBD5920990E8E007E4FED /* InputVC.swift */,
+				236CCCA220A60AD70045EC2C /* SearchVC.swift */,
+				236CCCA420A623AF0045EC2C /* SearchVC CustomCells */,
 				2308A5FC209A13E600F73DC2 /* CustomCell */,
 			);
 			path = "View Controllers";
@@ -121,6 +132,15 @@
 				236CBD522098FE15007E4FED /* PageShinobi.swift */,
 			);
 			path = Konoha;
+			sourceTree = "<group>";
+		};
+		236CCCA420A623AF0045EC2C /* SearchVC CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				236CCCA520A623CF0045EC2C /* CustomCellSearchVCAllTopics.swift */,
+				23DE2BC620A632B300DD1EF9 /* CustomCellSearchVCExpandingCell.swift */,
+			);
+			path = "SearchVC CustomCells";
 			sourceTree = "<group>";
 		};
 		23A1478B2098B97500D423B0 = {
@@ -307,16 +327,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23DFC68F20A6632F00A71725 /* newNotesVC.swift in Sources */,
 				23636FAF2098C2DF0083F60A /* Shinobi.swift in Sources */,
 				23A147A02098B97500D423B0 /* CBT_Journal.xcdatamodeld in Sources */,
 				236CBD5A20990E8E007E4FED /* InputVC.swift in Sources */,
 				2308A5FE209A13FD00F73DC2 /* CustomCellNotesTVCTitleCell.swift in Sources */,
 				23636FB12098C3270083F60A /* DayShinobi.swift in Sources */,
 				23636FAC2098BD570083F60A /* MainTVC.swift in Sources */,
+				236CCCA320A60AD70045EC2C /* SearchVC.swift in Sources */,
 				23636FB32098CB030083F60A /* PageTVC.swift in Sources */,
+				236CCCA620A623CF0045EC2C /* CustomCellSearchVCAllTopics.swift in Sources */,
 				236CBD532098FE15007E4FED /* PageShinobi.swift in Sources */,
 				23435E56209A1A9B00C02B83 /* CustomCellPageTVCExpandingCell.swift in Sources */,
 				23636FBA2098D7800083F60A /* NotesTVC.swift in Sources */,
+				23DE2BC720A632B300DD1EF9 /* CustomCellSearchVCExpandingCell.swift in Sources */,
 				23A147982098B97500D423B0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

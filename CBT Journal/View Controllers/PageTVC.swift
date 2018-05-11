@@ -38,7 +38,7 @@ class PageTVC: UITableViewController {
     // ======================= TableView Functions =======================
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
-    }//End numberOfSections
+    }//End numberOfSections()
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -46,19 +46,21 @@ class PageTVC: UITableViewController {
         } else {
             return pageArray.count
         }
-    }//End numberOfRowsInSection
+    }//End numberOfRowsInSection()
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
+            //MARK: Below code just for the AddNewEntry... Cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Add")
             return cell!
         } else {
+            //MARK: Below code for all page entries for this dateObject
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCellPageTVCExpandingCell
             cell.titleLabel.text = pageArray[indexPath.row].title
             cell.set(pageObject: pageArray[indexPath.row])
             return cell
         }
-    }//End cellForRowAt
+    }//End cellForRowAt()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("## prepare ##")
@@ -78,23 +80,21 @@ class PageTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("## didSelectRowAt ##")
         if indexPath.section == 0 {
+            //MARK: Section 0 means that it's the AddNewEntry... Cell
             performSegue(withIdentifier: "segueToNotesTVC", sender: indexPath)
         } else {
+            //MARK: Cells that are tapped expand ? to show their summary
             let cell = pageArray[indexPath.row]
             cell.expanded = !cell.expanded
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }//End didSelectRowAt()
     
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        print("## commit editingStyle ##")
-//    }//End commit editingStyle()
-    
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = editAction(at: indexPath)
         let delete = deleteAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [delete, edit])
-    }
+    }//End trailingSwipeAction()
     
     func editAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .normal, title: "Edit") {_,_,_ in
