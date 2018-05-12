@@ -64,15 +64,15 @@ class PageTVC: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("## prepare ##")
-        if segue.identifier == "segueToNotesTVC" {
-            print("> segueToNotesTVC")
-            let controller = segue.destination as! NotesTVC
+        if segue.identifier == "segueTonewNotesVC" {
+            print("> segueTonewNotesVC")
+            let controller = segue.destination as! newNotesVC
             let newPage: Page = Kakashi.createPage(dateObject: dateObject!)
             controller.pageObject = newPage
         } else if segue.identifier == "segueToEdit" {
             print("> segueToEdit")
             let ip = sender as! IndexPath
-            let controller = segue.destination as! NotesTVC
+            let controller = segue.destination as! newNotesVC
             controller.pageObject = pageArray[ip.row]
         }
     }//End prepare()
@@ -81,7 +81,7 @@ class PageTVC: UITableViewController {
         print("## didSelectRowAt ##")
         if indexPath.section == 0 {
             //MARK: Section 0 means that it's the AddNewEntry... Cell
-            performSegue(withIdentifier: "segueToNotesTVC", sender: indexPath)
+            performSegue(withIdentifier: "segueTonewNotesVC", sender: indexPath)
         } else {
             //MARK: Cells that are tapped expand ? to show their summary
             let cell = pageArray[indexPath.row]

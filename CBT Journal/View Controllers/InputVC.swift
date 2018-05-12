@@ -13,9 +13,12 @@ class InputVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     override func viewDidLoad() {
         print(""); print("xX_ InputVC _Xx"); print("## viewDidLoad ##")
         super.viewDidLoad()
+        //MARK: Below for UI/UX
         textView.delegate = self
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.black.cgColor
+        //MARK: Below sets the filler in the inputs based on the typeSwitch
+        // that is being sent over from the NotesVC
         if typeSwitch == 0 {
             print("> The Event")
             textView.text = pageObject?.event
@@ -66,11 +69,9 @@ class InputVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     }//End cancelButtonPressed()
     
     //Functions
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("## touchesBegan ##")
         self.textView.endEditing(true)
         self.textField.endEditing(true)
-    }
-    
+    }//End touchesBegan()
 }//End Class
