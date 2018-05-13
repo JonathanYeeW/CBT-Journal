@@ -55,9 +55,12 @@ class InputVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     }//End didReceiveMemoryWarning()
     
     //Variables
+    let Kakashi = PageShinobi()
     var pageObject: Page?
-    var typeSwitch = 0
-    var descriptionDictionary = [0: "Describe in 1-3 sentences what event triggered your emotional response.", 1: "Describe your inital thoughts to the event. Try to write phrases in terms of 'I think...' rather than 'I feel that...'", 2: "What feelings/physical reactions did you/are you experiencing?", 3: "Reflecting on your initial thoughts of the event, read over your descriptions and try to recognize any distorted thought patterns and respond to them. Why are they distorted? What are some other ways to look at it?", 4: "How are you feeling now?", 5: "What about you can you take away from this experience? What do you want to work on? Why do you think you had this response? What do you want to improve about yourself or have you accomplished something today?"]
+    var typeSwitch = 0    
+    var descriptionDictionary = [0: "Describe in 1-3 sentences what you were doing or thinking about when you started to feel these emotions/think these thoughts", 1: "Describe your initial thoughts. Write phrases in terms of 'I think' not 'I feel'.", 2: "What feelings/physical reactions are you experiencing?", 3: "Reread and reflect on your initial thoughts. Where, if at all, are your thoughts distorted? Why are they distorted? Is there another way to look at the event?", 4: "Now that you've reflected on your thoughts, how are you feeling?", 5: "What is the big takeaway from this experience? Why do you think you had this response? How do you want to respond to these thoughts in the future?"]
+    
+    
     
     //Outlets
     @IBOutlet weak var textField: UITextField!
@@ -74,4 +77,12 @@ class InputVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         self.textView.endEditing(true)
         self.textField.endEditing(true)
     }//End touchesBegan()
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("## textFieldShouldReturn ##")
+        Kakashi.updateTitle(newString: textField.text!, pageObject: pageObject!)
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }//End Class

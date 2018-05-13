@@ -137,6 +137,17 @@ class PageShinobi{
         }
         return tempString
     }//End findAllTopics()
+    
+    func updateTitle(newString: String, pageObject: Page){
+        print("<> PageShinobi <> updateTitle <>")
+        let item = pageObject
+        item.title = newString
+        Jonathan.saveToDatabase()
+    }
+    
+    
+    
+    
 //    create
 //    fetchAll
 //    fetchSingle

@@ -7,19 +7,23 @@
 //
 
 import UIKit
-class newNotesVC: UIViewController {
+class newNotesVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
+        textField.delegate = self
         //MARK: Below for UI/UX
-        textField.layer.shadowColor = UIColor.gray.cgColor
-        textField.layer.shadowOffset = CGSize(width: 2, height: 2)
-        textField.layer.shadowRadius = 1
-        textField.layer.shadowOpacity = 0.1
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.cornerRadius = 15
         for button in buttons{
-            button.layer.shadowColor = UIColor.gray.cgColor
-            button.layer.shadowOffset = CGSize(width: 2, height: 2)
-            button.layer.shadowRadius = 1
-            button.layer.shadowOpacity = 0.1
+            //MARK: Commented code below for giving buttons shadows. Decided not to
+            // use it last minute, but wanted to keep the code in event I want to later
+            //button.layer.shadowColor = UIColor.gray.cgColor
+            //button.layer.shadowOffset = CGSize(width: 2, height: 2)
+            //button.layer.shadowRadius = 1
+            //button.layer.shadowOpacity = 0.1
+            button.layer.borderWidth = 0.5
+            button.layer.borderColor = UIColor.black.cgColor
         }
     }//End viewDidLoad()
     
@@ -54,12 +58,12 @@ class newNotesVC: UIViewController {
     
     //Variables
     let Jonathan = Shinobi()
+    let Kakashi = PageShinobi()
     var pageObject: Page?
     var typeSwitch = 0
     
     //Outlets
     @IBOutlet weak var textField: UITextField!
-    
     @IBOutlet weak var eventButtonLabel: UIButton!
     @IBOutlet weak var initialThoughtsButtonLabel: UIButton!
     @IBOutlet weak var initialFeelingButtonLabel: UIButton!
@@ -143,4 +147,20 @@ class newNotesVC: UIViewController {
             controller.typeSwitch = typeSwitch
         }
     }//End prepare()
+    
+    //MARK: Below is code for the textField Delegate allowing the user to hit
+    // return or touch outside the bounds of the keyboard to end editing.
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }//End touchesBegan()
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("## textFieldShouldReturn ##")
+        Kakashi.updateTitle(newString: textField.text!, pageObject: pageObject!)
+        textField.resignFirstResponder()
+        return true
+    }//End textFieldShouldReturn()
+    
+    
 }//End Class
