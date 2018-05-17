@@ -57,8 +57,8 @@ class newNotesVC: UIViewController, UITextFieldDelegate {
     }//End didReceiveMemoryWarning()
     
     //Variables
-    let Jonathan = ObjectManager()
-    let Kakashi = PageManager()
+    let objectManager = ObjectManager()
+    let pageManager = PageManager()
     var pageObject: Page?
     var typeSwitch = 0
     
@@ -96,7 +96,7 @@ class newNotesVC: UIViewController, UITextFieldDelegate {
             pageObject?.summary = source.textView.text
         }
         pageObject?.title = source.textField.text
-        Jonathan.saveToDatabase()
+        objectManager.saveToDatabase()
     }
     
     //MARK: The IBActions below are for the corresponding buttons
@@ -157,7 +157,7 @@ class newNotesVC: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("## textFieldShouldReturn ##")
-        Kakashi.updateTitle(newString: textField.text!, pageObject: pageObject!)
+        pageManager.updateTitle(newString: textField.text!, pageObject: pageObject!)
         textField.resignFirstResponder()
         return true
     }//End textFieldShouldReturn()

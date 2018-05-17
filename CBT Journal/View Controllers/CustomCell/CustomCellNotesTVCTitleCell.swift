@@ -12,8 +12,8 @@ class CustomCellNotesTVCTitleCell: UITableViewCell, UITextFieldDelegate {
     
     //Variables
     var pageObject: Page?
-    let Jonathan = ObjectManager()
-    let Kakashi = PageManager()
+    let objectManager = ObjectManager()
+//    let Kakashi = PageManager()
     
     //Outlets
     @IBOutlet weak var textField: UITextField!
@@ -21,7 +21,7 @@ class CustomCellNotesTVCTitleCell: UITableViewCell, UITextFieldDelegate {
     //Functions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         pageObject?.title = textField.text
-        Jonathan.saveToDatabase()
+        objectManager.saveToDatabase()
         textField.resignFirstResponder()
         return true
     }

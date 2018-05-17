@@ -10,7 +10,7 @@ import UIKit
 class PageTVC: UITableViewController {
     override func viewDidLoad() {
         print(""); print("xX_ PageTVC _Xx"); print("## viewDidLoad ##")
-        title = Jonathan.formatDateLong(date: (dateObject?.createdAt)!)
+        title = objectManager.formatDateLong(date: (dateObject?.createdAt)!)
         super.viewDidLoad()
         ReloadTableView()
         for object in pageArray{
@@ -28,9 +28,8 @@ class PageTVC: UITableViewController {
     }//End didReceiveMemoryWarning()
     
     // ======================= Variables =======================
-    let Jonathan = ObjectManager()
-    let Naruto = DayManager()
-    let Kakashi = PageManager()
+    let objectManager = ObjectManager()
+    let pageManager = PageManager()
     var pageArray: [Page] = []
     var dateObject: Day?
     
@@ -67,7 +66,7 @@ class PageTVC: UITableViewController {
         if segue.identifier == "segueTonewNotesVC" {
             print("> segueTonewNotesVC")
             let controller = segue.destination as! newNotesVC
-            let newPage: Page = Kakashi.createPage(dateObject: dateObject!)
+            let newPage: Page = pageManager.createPage(dateObject: dateObject!)
             controller.pageObject = newPage
         } else if segue.identifier == "segueToEdit" {
             print("> segueToEdit")
@@ -108,7 +107,7 @@ class PageTVC: UITableViewController {
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete"){_,_,_ in
             print("## deleteAction ##")
-            self.Kakashi.deleteSinglePage(pageObject: self.pageArray[indexPath.row])
+            self.pageManager.deleteSinglePage(pageObject: self.pageArray[indexPath.row])
             self.ReloadTableView()
         }
         action.backgroundColor = UIColor.red
@@ -118,7 +117,7 @@ class PageTVC: UITableViewController {
     // ======================= Functions =======================
     func ReloadTableView(){
         print("## ReloadTableView ##")
-        pageArray = Kakashi.fetchAllPagesForDate(dateObject: dateObject!)
+        pageArray = pageManager.fetchAllPagesForDate(dateObject: dateObject!)
         pageArray = pageArray.sorted(by: { $0.createdAt! > $1.createdAt! })
         tableView.reloadData()
     }//End ReloadTableView()

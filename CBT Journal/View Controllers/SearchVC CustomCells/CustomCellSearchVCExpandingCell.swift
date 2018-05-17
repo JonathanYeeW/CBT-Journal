@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 class CustomCellSearchVCExpandingCell: UITableViewCell {
     
-    let Jonathan = ObjectManager()
+    let objectManager = ObjectManager()
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var hiddenSummary: UILabel!
@@ -20,7 +20,7 @@ class CustomCellSearchVCExpandingCell: UITableViewCell {
     //MARK: call this set function in cellForRowAt()
     func set(pageObject: Page){
         let temp = pageObject.myDay?.createdAt
-        dateLabel.text = Jonathan.formatDateLong(date: temp!)
+        dateLabel.text = objectManager.formatDateLong(date: temp!)
         hiddenSummary.text = pageObject.expanded ? pageObject.summary : ""
     }//End set()
 }//End Class

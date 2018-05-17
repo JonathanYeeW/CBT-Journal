@@ -13,8 +13,8 @@ class MainTVC: UITableViewController {
         print("xX_ MainTVC _Xx")
         print("viewDidLoad")
         super.viewDidLoad()
-        if Naruto.checkIfTodayAlreadyCreated() == false {
-            Naruto.createDay()
+        if dayManager.checkIfTodayAlreadyCreated() == false {
+            dayManager.createDay()
         }
         ReloadTableView()
     }//End
@@ -24,16 +24,16 @@ class MainTVC: UITableViewController {
     }//End
     
 // ======================= Variables =======================
-    let Jonathan = ObjectManager()
-    let Naruto = DayManager()
+    let objectManager = ObjectManager()
+    let dayManager = DayManager()
     var dayArray: [Day] = []
     
 // ======================= Outlets =======================
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         print("@@ addButtonPressed @@")
-        if Naruto.checkIfTodayAlreadyCreated() == false {
-            Naruto.createDay()
+        if dayManager.checkIfTodayAlreadyCreated() == false {
+            dayManager.createDay()
         }
         ReloadTableView()
     }
@@ -44,7 +44,7 @@ class MainTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = Jonathan.formatDateLong(date: (dayArray[indexPath.row].createdAt)!)
+        cell.textLabel?.text = objectManager.formatDateLong(date: (dayArray[indexPath.row].createdAt)!)
         if indexPath.row == 0 {
             cell.backgroundColor = UIColor(red:0.64, green:0.88, blue:0.92, alpha:1.0)
         }
@@ -67,14 +67,14 @@ class MainTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         print("## commit editingStyle ##")
         let dayObject = dayArray[indexPath.row]
-        Naruto.deleteSingleDay(dayObject: dayObject)
+        dayManager.deleteSingleDay(dayObject: dayObject)
         ReloadTableView()
     }//End
     
 // ======================= Functions =======================
     func ReloadTableView(){
         print("## ReloadTableView ##")
-        dayArray = Naruto.fetchAllDays()
+        dayArray = dayManager.fetchAllDays()
         dayArray = dayArray.sorted(by: {$0.createdAt! > $1.createdAt!})
         tableView.reloadData()
     }//End ReloadTableView()

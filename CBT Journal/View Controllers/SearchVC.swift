@@ -17,7 +17,7 @@ class SearchVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, U
         tableView.delegate = self
         tableView.dataSource = self
         textField.delegate = self
-        stringOfArrayTopics = kakashi.findAllTopics()
+        stringOfArrayTopics = pageManager.findAllTopics()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,8 +29,7 @@ class SearchVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, U
     }
     
     //Variables
-    let kakashi = PageManager()
-    let Jonathan = ObjectManager()
+    let pageManager = PageManager()
     var searchTopic: String?
     var arrayOfPages: [Page] = []
     var stringOfArrayTopics = ""
@@ -52,7 +51,7 @@ class SearchVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, U
     func engageSearchMechanism(){
         searchTopic = textField.text
         textField.text = ""
-        arrayOfPages = kakashi.searchByTopic(topic: searchTopic!)
+        arrayOfPages = pageManager.searchByTopic(topic: searchTopic!)
         tableView.reloadData()
     }
     
