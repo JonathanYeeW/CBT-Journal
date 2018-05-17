@@ -55,7 +55,7 @@ class InputVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     }//End didReceiveMemoryWarning()
     
     //Variables
-    let Kakashi = PageShinobi()
+    let Kakashi = PageManager()
     var pageObject: Page?
     var typeSwitch = 0    
     var descriptionDictionary = [0: "Describe in 1-3 sentences what you were doing or thinking about when you started to feel these emotions/think these thoughts", 1: "Describe your initial thoughts. Write phrases in terms of 'I think' not 'I feel'.", 2: "What feelings/physical reactions are you experiencing?", 3: "Reread and reflect on your initial thoughts. Where, if at all, are your thoughts distorted? Why are they distorted? Is there another way to look at the event?", 4: "Now that you've reflected on your thoughts, how are you feeling?", 5: "What is the big takeaway from this experience? Why do you think you had this response? How do you want to respond to these thoughts in the future?"]

@@ -1,5 +1,5 @@
 //
-//  PageShinobi.swift
+//  PageManager.swift
 //  CBT Journal
 //
 //  Created by Jonathan Yee on 5/1/18.
@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 import CoreData
-class PageShinobi{
+class PageManager {
 
     //Variables
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let Jonathan = Shinobi()
+    let Jonathan = ObjectManager()
     
     //Functions
     func createPage(dateObject: Day) -> Page {

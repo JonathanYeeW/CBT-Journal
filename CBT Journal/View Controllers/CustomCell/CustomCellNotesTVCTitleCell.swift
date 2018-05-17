@@ -12,8 +12,8 @@ class CustomCellNotesTVCTitleCell: UITableViewCell, UITextFieldDelegate {
     
     //Variables
     var pageObject: Page?
-    let Jonathan = Shinobi()
-    let Kakashi = PageShinobi()
+    let Jonathan = ObjectManager()
+    let Kakashi = PageManager()
     
     //Outlets
     @IBOutlet weak var textField: UITextField!

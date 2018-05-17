@@ -29,8 +29,8 @@ class SearchVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, U
     }
     
     //Variables
-    let kakashi = PageShinobi()
-    let Jonathan = Shinobi()
+    let kakashi = PageManager()
+    let Jonathan = ObjectManager()
     var searchTopic: String?
     var arrayOfPages: [Page] = []
     var stringOfArrayTopics = ""

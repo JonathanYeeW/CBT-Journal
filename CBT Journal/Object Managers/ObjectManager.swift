@@ -1,5 +1,5 @@
 //
-//  Shinobi.swift
+//  ObjectManager.swift
 //  CBT Journal
 //
 //  Created by Jonathan Yee on 5/1/18.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
-class Shinobi {
+class ObjectManager {
  
     //Variables
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 class CustomCellSearchVCExpandingCell: UITableViewCell {
     
-    let Jonathan = Shinobi()
+    let Jonathan = ObjectManager()
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var hiddenSummary: UILabel!

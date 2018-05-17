@@ -24,8 +24,8 @@ class MainTVC: UITableViewController {
     }//End
     
 // ======================= Variables =======================
-    let Jonathan = Shinobi()
-    let Naruto = DayShinobi()
+    let Jonathan = ObjectManager()
+    let Naruto = DayManager()
     var dayArray: [Day] = []
     
 // ======================= Outlets =======================

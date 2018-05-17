@@ -28,9 +28,9 @@ class PageTVC: UITableViewController {
     }//End didReceiveMemoryWarning()
     
     // ======================= Variables =======================
-    let Jonathan = Shinobi()
-    let Naruto = DayShinobi()
-    let Kakashi = PageShinobi()
+    let Jonathan = ObjectManager()
+    let Naruto = DayManager()
+    let Kakashi = PageManager()
     var pageArray: [Page] = []
     var dateObject: Day?
     

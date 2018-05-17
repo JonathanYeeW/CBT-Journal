@@ -57,8 +57,8 @@ class newNotesVC: UIViewController, UITextFieldDelegate {
     }//End didReceiveMemoryWarning()
     
     //Variables
-    let Jonathan = Shinobi()
-    let Kakashi = PageShinobi()
+    let Jonathan = ObjectManager()
+    let Kakashi = PageManager()
     var pageObject: Page?
     var typeSwitch = 0
     
