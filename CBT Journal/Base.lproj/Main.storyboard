@@ -57,6 +57,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButtonLabel" destination="HRK-jG-zfG" id="tWO-H0-Gqw"/>
                         <segue destination="f1J-QZ-eN7" kind="show" identifier="segueToPageTVC" id="8o9-2Y-0yx"/>
                     </connections>
                 </tableViewController>
